@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://i0d8a7d5nv32"]
+[gd_scene load_steps=11 format=4 uid="uid://i0d8a7d5nv32"]
 
+[ext_resource type="PackedScene" uid="uid://1gj3ugys7f3e" path="res://death.tscn" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://caq121h1wjghh" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dbqbmf0vc65da" path="res://Screenshot_2025-08-11_at_5.19.45_PM-removebg-preview.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d0sn5e1nltpm" path="res://Screenshot 2025-08-11 at 4.53.20 PM.png" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cj2n0amkoywmk" path="res://toillet.png" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://d0mjx7p8ybrrf" path="res://world_tileset.png" id="5_lquwl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_272bh"]
+distance = -305.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(41, 138)
@@ -181,6 +185,13 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7mycd")
 
 [node name="Main" type="Node"]
+
+[node name="death" parent="." instance=ExtResource("1_7mycd")]
+position = Vector2(577, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
+light_mask = 2
+shape = SubResource("WorldBoundaryShape2D_272bh")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-4, -4)
